@@ -45,7 +45,7 @@ func (c *RPCClient) Close() error {
 }
 
 // Call makes a JSON-RPC request and waits for the response
-func (c *RPCClient) Call(method string, params any) (*RPCResponse, error) {
+func (c *RPCClient) Call(method string, params []any) (*RPCResponse, error) {
 	// Set request ID
 	// TODO: Generate unique request ID
 	reqID := 1234
@@ -53,6 +53,8 @@ func (c *RPCClient) Call(method string, params any) (*RPCResponse, error) {
 	// Handle nil params
 	if params == nil {
 		params = []any{}
+	} else {
+		params = []any{params}
 	}
 
 	// Prepare request
