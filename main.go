@@ -13,10 +13,15 @@ func main() {
 	}
 	defer client.Close()
 
-	// Make a simple request
-	response, err := client.Call("rpc.discover", nil)
-	if err != nil {
-		log.Fatal(err)
+	player1 := Player{Name: "Test"}
+	player2 := Player{Name: "Test2"}
+
+	players := []any{
+		player1,
+		player2,
 	}
-	fmt.Printf("Result: %v\n", response.Result)
+
+	fmt.Println(addToAllowlist(*client, players))
+
+	//fmt.Println(getRpcDiscover(*client))
 }
