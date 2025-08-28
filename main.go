@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+
+	"github.com/karotte128/mcsmplib"
 )
 
 func main() {
@@ -13,15 +15,20 @@ func main() {
 	}
 	defer client.Close()
 
-	player1 := Player{Name: "Test"}
-	player2 := Player{Name: "Test2"}
+	player1 := mcsmplib.Player{Name: "Test"}
+	player2 := mcsmplib.Player{Name: "Test2"}
 
-	players := []any{
+	players := []mcsmplib.Player{
 		player1,
 		player2,
 	}
 
-	fmt.Println(addToAllowlist(*client, players))
+	request := mcsmplib.AllowlistAdd(players)
 
-	//fmt.Println(getRpcDiscover(*client))
+	response, err := client.Call(request)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%v\n", response.Result)
 }

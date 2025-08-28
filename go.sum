@@ -1,2 +1,4 @@
 github.com/gorilla/websocket v1.5.3 h1:saDtZ6Pbx/0u+bgYQ3q96pZgCzfhKXGPqt7kZ72aNNg=
 github.com/gorilla/websocket v1.5.3/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
+github.com/karotte128/mcsmplib v0.0.0-20250828173302-4fb99ac17a38 h1:9F1D8jELDooPJP+jQKF5L96B4/iCtVNP+pFUr8vyHN0=
+github.com/karotte128/mcsmplib v0.0.0-20250828173302-4fb99ac17a38/go.mod h1:APpq3dQHsgNqfVg5DwObqoFBJpfU7kPZ9FOxAdLoizQ=

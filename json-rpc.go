@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/gorilla/websocket"
+	"github.com/karotte128/mcsmplib"
 )
 
 // RPCResponse represents a JSON-RPC response
@@ -45,23 +46,16 @@ func (c *RPCClient) Close() error {
 }
 
 // Call makes a JSON-RPC request and waits for the response
-func (c *RPCClient) Call(method string, params []any) (*RPCResponse, error) {
+func (c *RPCClient) Call(input_request mcsmplib.Request) (*RPCResponse, error) {
 	// Set request ID
 	// TODO: Generate unique request ID
 	reqID := 1234
 
-	// Handle nil params
-	if params == nil {
-		params = []any{}
-	} else {
-		params = []any{params}
-	}
-
 	// Prepare request
 	request := map[string]any{
 		"jsonrpc": "2.0",
-		"method":  method,
-		"params":  params,
+		"method":  input_request.Method,
+		"params":  input_request.Params,
 		"id":      reqID,
 	}
 
