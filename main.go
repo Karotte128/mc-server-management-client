@@ -15,7 +15,7 @@ func main() {
 	}
 	defer client.Close()
 
-	player1 := mcsmplib.Player{Name: "Test"}
+	player1 := mcsmplib.Player{ID: "d8d5a923-7b20-43d8-883b-1150148d6955"}
 	player2 := mcsmplib.Player{Name: "Test2"}
 
 	players := []mcsmplib.Player{
